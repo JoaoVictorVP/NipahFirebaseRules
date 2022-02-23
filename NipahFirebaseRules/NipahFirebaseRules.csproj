@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>true</PackAsTool>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="JavaScriptReference-NFR.ts" />
+    <None Remove="Main.rsc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="JavaScriptReference-NFR.ts" />
+    <EmbeddedResource Include="Main.rsc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jint" Version="3.0.0-beta-2037" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NipahTokenizer" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
