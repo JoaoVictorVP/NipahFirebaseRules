@@ -170,8 +170,18 @@ void transpileAll()
 
     findRequires("Main", ref script);
 
-    string finalScript = compiler.TranspileToJs(script);
-    File.WriteAllText("Generated/Main.js", processTranspiled("Main", finalScript));
+    string finalScript = null;
+    bool terminated = false;
+    var ftranspile = Task.Run(() =>
+    {
+        finalScript = compiler.TranspileToJs(script);
+        terminated = true;
+    });
+    ftranspile.Wait(TimeSpan.FromSeconds(5));
+    if(!terminated)
+        throw new TimeoutException("Code encountered a loop problem, probably the syntax of your code is wrong");
+
+    File.WriteAllText("Generated/Main.js", processTranspiled("Main", finalScript!));
 }
 
 MainRule getRules()

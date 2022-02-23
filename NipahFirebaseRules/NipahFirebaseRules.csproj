@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
+    <ToolCommandName>NipahFirebaseRules</ToolCommandName>
   </PropertyGroup>
 
   <ItemGroup>
