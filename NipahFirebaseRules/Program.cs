@@ -22,9 +22,9 @@ while (true)
 
     Console.WriteLine("B: Build firebase rules to 'rule.json'");
     Console.WriteLine("H: Display help");
-    Console.WriteLine("T: Test some command on rules");
+    Console.WriteLine("T: Test some command on rules (WIP)");
     Console.WriteLine("S: Setup initial environment for you development");
-    Console.WriteLine("C: Create an arbitrary '.js' rule function file");
+    Console.WriteLine("C: Create an arbitrary '.js' rule function file or '.rsc' rule file");
     Console.WriteLine("P: Preview the generated JSON for Firebase rules");
 
     var key = Console.ReadKey(true).Key;
@@ -292,7 +292,7 @@ void setupJs()
     Console.WriteLine("Created 'Main.js'");
 }
 
-void createFunction()
+void createFunctionJs()
 {
     Console.WriteLine("Type the name of your function:");
     Console.Write("> ");
@@ -302,6 +302,23 @@ void createFunction()
     // Write your {name} function code here: E.g. root.If(...)...
 }}");
     Console.WriteLine($"Created '{name}.js'!");
+}
+void createFunctionRsc()
+{
+    Console.WriteLine("Type the name of your RuleScriptCode file:");
+    Console.Write("> ");
+    string name = Console.ReadLine();
+
+    File.WriteAllText(name + ".rsc", @$"function Default() {{
+    if true == true
+}}");
+    Console.WriteLine($"Created '{name}.rsc'!");
+}
+
+void createFunction()
+{
+    Console.Options(("JavaScript Function File", createFunctionJs),
+        ("Firebase RuleScriptCode File", createFunctionRsc));
 
     Console.WriteLine();
 

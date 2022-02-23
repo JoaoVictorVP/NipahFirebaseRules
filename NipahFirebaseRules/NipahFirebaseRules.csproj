@@ -7,6 +7,12 @@
     <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>NipahFirebaseRules</ToolCommandName>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>A tool to make easy Firebase rules (database only, currently) with JavaScript and a easy fluid interface or
+a tiny, WIP, custom scripting language called Firebase RuleScriptCode</Description>
+    <PackageIcon>Furude Rika - Padoru.png</PackageIcon>
+    <PackageReleaseNotes>First release version</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +23,13 @@
   <ItemGroup>
     <EmbeddedResource Include="JavaScriptReference-NFR.ts" />
     <EmbeddedResource Include="Main.rsc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Pictures\Furude Rika - Padoru.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
